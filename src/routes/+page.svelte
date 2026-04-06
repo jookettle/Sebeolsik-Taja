@@ -28,6 +28,32 @@
         });
     }));
     let currentText = $derived(filteredSentences[currentSentenceIdx % (filteredSentences.length || 1)] || "");
+    
+    let compatibleTexts = $derived(Object.fromEntries(
+        Object.keys(texts).map(title => [
+            title,
+            (texts as Record<string, string[]>)[title].some(s => {
+                return s.split('').every(char => {
+                    if (char === ' ' || char === '\n' || char === '\r') return true;
+                    const keys = getSebeolsikKeystrokes(char, layouts[selectedLayout]);
+                    return keys.every(k => {
+                        const rawKey = k.startsWith('shift+') ? k.slice(6) : k;
+                        return rawKey in layouts[selectedLayout].keys || ['Space', 'Enter', 'Backspace'].includes(rawKey);
+                    });
+                });
+            })
+        ])
+    ));
+
+    $effect(() => {
+        if (!compatibleTexts[selectedTextKey]) {
+            const firstCompatible = Object.keys(texts).find(t => compatibleTexts[t]);
+            if (firstCompatible) {
+                selectedTextKey = firstCompatible;
+                resetAll();
+            }
+        }
+    });
 
     const fingerMap: Record<string, string> = {
         "Digit1": "L4", "KeyQ": "L4", "KeyA": "L4", "KeyZ": "L4",
@@ -320,7 +346,7 @@
                             />
                         </div>
                         <div class="flex flex-col gap-1 p-2 max-h-[320px] overflow-y-auto">
-                            {#each Object.keys(texts).filter(t => t.toLowerCase().includes(searchText.toLowerCase())) as title}
+                            {#each Object.keys(texts).filter(t => t.toLowerCase().includes(searchText.toLowerCase()) && compatibleTexts[t]) as title}
                                 <button 
                                     onclick={() => { selectedTextKey = title; showTextSelect = false; searchText = ""; resetAll(); }}
                                     class="w-full text-left px-4 py-3 rounded-lg text-[14px] transition-all {selectedTextKey === title ? 'bg-white/10 text-white' : 'text-[#666666] hover:bg-white/5 hover:text-white'}">
