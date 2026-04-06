@@ -11,5 +11,8 @@
 		"directory": ".svelte-kit/cloudflare"
 	},
 	"workers_dev": true,
-	"preview_urls": true
+	"preview_urls": true,
+	"routes": [
+		{ "pattern": "taja.ai.ai.kr", "custom_domain": true }
+	]
 }
