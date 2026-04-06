@@ -1,6 +1,8 @@
 {
 	"name": "3-set-keyboard-practice",
-	"private": true,
+	"private": false,
+	"author": "Jinpyo Joo",
+	"license": "Apache-2.0",
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
