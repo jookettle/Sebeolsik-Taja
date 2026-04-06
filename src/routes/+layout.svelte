@@ -7,11 +7,12 @@
 </script>
 
 <svelte:head>
-	<title>Seyeonsik 3-set Practice | Premium Keyboard Trainer</title>
+	<title>sebeolsik — keyboard practice</title>
 	<meta name="description" content="Master the Se-yeonsik 3-set keyboard layout with our premium typing practice application." />
+	<link rel="icon" type="image/png" href="/favicon.png" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </svelte:head>
 
 <div class="min-h-screen bg-[#111111] text-[#999999] selection:bg-[#333333] font-['Outfit']">
