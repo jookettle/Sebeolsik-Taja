@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>세연식 세벌식 타자연습</title>
+	<title>세벌식 세벌식 타자연습</title>
 	<meta name="description" content="세벌식의 매력을 더 깊게, 세련된 인터페이스로 즐기는 타자 연습 서비스" />
 	<meta property="og:title" content="세벌식 타자연습" />
 	<meta property="og:description" content="세벌식의 매력을 더 깊게, 세련된 인터페이스로 즐기는 타자 연습 서비스" />
